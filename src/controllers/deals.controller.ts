@@ -1,9 +1,19 @@
 import { FastifyInstance } from 'fastify';
-import { getAllDeals } from '../models/deals.model';
+import { createNewDeals, getAllDeals, getDealById } from '../models/deals.model';
+import { PostDealBody } from '../dto/deal.dto';
 
 export async function fetchAllDeals(fastify: FastifyInstance) {
 	try {
 		return await getAllDeals(fastify);
+	} catch (e) {
+		throw e;
+	}
+}
+
+export async function addDeal(fastify: FastifyInstance, data: PostDealBody) {
+	try {
+		const [id] = await createNewDeals(fastify, data);
+		return await getDealById(fastify, id);
 	} catch (e) {
 		throw e;
 	}
