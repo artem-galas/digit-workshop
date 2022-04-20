@@ -18,3 +18,11 @@ export async function addDeal(fastify: FastifyInstance, data: PostDealBody) {
 		throw e;
 	}
 }
+
+export async function fetchDealById(fastify: FastifyInstance, id: number) {
+	try {
+		return getDealById(fastify, id);
+	} catch (e) {
+		throw e;
+	}
+}
