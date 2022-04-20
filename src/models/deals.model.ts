@@ -17,3 +17,15 @@ export const enum DealsStatuses {
 export async function getAllDeals(fastify: FastifyInstance) {
 	return fastify.knex<DealsModel>('deals');
 }
+
+
+export async function createNewDeals(fastify: FastifyInstance, data: any) {
+	return fastify.knex<DealsModel>('deals')
+		.insert(data);
+}
+
+export async function getDealById(fastify: FastifyInstance, id: number) {
+	return fastify.knex<DealsModel>('deals')
+		.where({id})
+		.first();
+}
