@@ -22,7 +22,7 @@ will spin up container with DB and run the application
 
 ## API:
 
-- `GET /v1/deals` - returns list of deals
+### `GET /v1/deals` - returns list of deals
 
 ✅ 200 OK
 ```json
@@ -44,7 +44,7 @@ will spin up container with DB and run the application
 ]
 ```
 
-- `GET /v1/deals/:id` - returns one deal by provided ID
+### `GET /v1/deals/:id` - returns one deal by provided ID
   
 ✅ 200 OK
 ```json
@@ -59,7 +59,7 @@ will spin up container with DB and run the application
 
 ❌ 404 Not Found - if provided ID could not be found in Deals DB
 
-- `POST /v1/deals` - creates new Deal by provided values
+### `POST /v1/deals` - creates new Deal by provided values
 
 Params:
 ```json
