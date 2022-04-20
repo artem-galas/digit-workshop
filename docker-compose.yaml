@@ -1,0 +1,30 @@
+version: '3.9'
+volumes:
+  deals-db:
+services:
+  deals-api:
+    image: "node:lts-alpine3.14"
+    working_dir: /app
+    depends_on:
+      - deals-db
+    ports:
+      - '8412:8412'
+      - '9320:9320'
+    command: sh -c "npm run dev"
+    volumes:
+      - .:/app
+    environment:
+      DB_CONNECTION_STRING: 'mysql://user:password@deals-db:3306/deals'
+      NODE_ENV: development
+      PORT: 8412
+  deals-db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'deals'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '8413:3306'
+    volumes:
+      - deals-db:/var/lib/mysql
