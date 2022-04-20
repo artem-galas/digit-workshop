@@ -1,12 +1,12 @@
 import { FastifyInstance, RouteOptions } from 'fastify';
-import { getAllDeals } from '../models/deals.model';
+import { fetchAllDeals } from '../controllers/deals.controller';
 
 export default function getList(fastify: FastifyInstance): RouteOptions {
 	return {
 		method: 'GET',
 		url: '/',
 		handler: async () => {
-			return getAllDeals(fastify);
+			return fetchAllDeals(fastify);
 		},
 	};
 }
