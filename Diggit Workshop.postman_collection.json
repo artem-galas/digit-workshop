@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "e46974f6-b2a5-4ede-a35d-12ad0427d046",
+		"name": "Diggit Workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET deals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/v1/deals",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"deals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST deals",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Awesome 2\",\n    \"stage\": \"Contacted\",\n    \"value\": 3000,\n    \"status\": \"won\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/v1/deals",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"deals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET one deal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/v1/deals/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"deals",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:8412",
+			"type": "string"
+		}
+	]
+}
